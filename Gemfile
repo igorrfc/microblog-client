@@ -23,6 +23,8 @@ gem 'react_on_rails'
 
 gem 'her'
 
+gem 'oauth2'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Use Redis adapter to run Action Cable in production
