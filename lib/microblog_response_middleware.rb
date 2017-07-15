@@ -9,6 +9,7 @@ class MicroblogResponseMiddleware < Faraday::Response::Middleware
 
   def prepare_response_body(env)
     body = env[:body][:data]
+    body = body[:data] if body[:data].present?
     errors = env[:body][:errors]
 
     { data: body.merge({ errors: errors }), errors: errors }
