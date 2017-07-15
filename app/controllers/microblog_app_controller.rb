@@ -4,6 +4,10 @@ class MicroblogAppController < ApplicationController
   layout "microblog"
 
   def index
-    @microblog_props = { name: "Stranger" }
+    initialState = {
+      users: { current: session[:current_user] }
+    }
+
+    @microblog_props = initialState
   end
 end

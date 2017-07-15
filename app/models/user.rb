@@ -3,5 +3,7 @@ class User
   use_api MICROBLOG_API
   include_root_in_json true
 
-  scope :all, -> { get('users') }
+  collection_path 'api/users'
+
+  scope :all, -> { get('api/users') }
 end
