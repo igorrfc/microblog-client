@@ -5,6 +5,7 @@ class MicroblogAppController < ApplicationController
 
   def index
     initialState = {
+      authenticity: form_authenticity_token,
       users: { current: session[:current_user] }
     }
 
