@@ -12,6 +12,14 @@ class MicroblogResponseMiddleware < Faraday::Response::Middleware
     body = body[:data] if body[:data].present?
     errors = env[:body][:errors]
 
-    { data: body.merge({ errors: errors }), errors: errors }
+    if single_resource?(body)
+      { data: body.merge({ errors: errors }), errors: errors }
+    else
+      { data: body, errors: errors }
+    end
+  end
+
+  def single_resource?(body)
+    body.is_a? Hash
   end
 end
