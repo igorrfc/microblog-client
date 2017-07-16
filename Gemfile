@@ -55,6 +55,7 @@ group :test do
   gem 'faker'
   gem 'rspec-rails', '3.5.0'
   gem 'shoulda'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
