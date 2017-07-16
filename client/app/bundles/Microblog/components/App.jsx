@@ -1,22 +1,34 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { SyncLoader } from 'halogen';
+import axios from 'axios';
 
 import Login from './Login';
 import SignUp from './SignUp';
 import MainContent from './MainContent';
 
 export class App extends Component {
-  componentDidUpdate(prevProps) {
-    const { railsProps: { user: sessionUser } } = prevProps;
+  checkForSessionUser(props) {
+    const { railsProps: { user: sessionUser } } = props;
     const {
       users: { logged: loggedUser },
-      authenticationSucceed
+      authenticationSucceed,
+      refreshUser,
     } = this.props;
 
     if (sessionUser && !loggedUser) {
-      authenticationSucceed(sessionUser);
+      axios.get('/users/' + sessionUser.id).then(({ data: response }) => (
+        refreshUser(response.data)
+      ));
     };
+  }
+
+  componentWillMount() {
+    this.checkForSessionUser(this.props);
+  }
+
+  componentDidUpdate(prevProps) {
+    this.checkForSessionUser(prevProps);
   }
 
   renderLogin() {
@@ -48,12 +60,15 @@ export class App extends Component {
       routing: { locationBeforeTransitions: { pathname } },
       railsProps: { user: sessionUser },
       users: { logged: loggedUser },
+      authenticationSucceed,
       appStatus,
     } = this.props;
 
     if (appStatus.loading) { return this.renderLoader(); };
 
-    if (loggedUser || sessionUser) { return this.renderMainContent(); };
+    if (loggedUser || sessionUser) {
+      return this.renderMainContent();
+    };
 
     if (pathname === '/') { return this.renderLogin(); }
 

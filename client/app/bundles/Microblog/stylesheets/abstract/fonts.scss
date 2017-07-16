@@ -26,3 +26,31 @@ span {
 .bold {
   font-weight: bold;
 }
+
+.font-tiny {
+  @include font-size($font-tiny);
+}
+
+.font-default {
+  @include font-size($font-default);
+}
+
+.font-medium {
+  @include font-size($font-medium);
+}
+
+.font-medium-x {
+  @include font-size($font-medium-x);
+}
+
+.font-big {
+  @include font-size($font-big);
+}
+
+.font-extra-big {
+  @include font-size($font-extra-big);
+}
+
+.font-mid-grey {
+  color: $mid-grey;
+}

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resource :login, controller: 'login', only: :create
 
-  resources :users, only: :index do
+  resources :users, only: %i[index show] do
     resources :posts, only: :create
     resources :notifications, only: %i[update index]
     collection do

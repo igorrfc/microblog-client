@@ -1,9 +1,14 @@
 @import 'abstract/variables';
 @import 'abstract/functions';
 @import 'abstract/fonts';
+@import 'abstract/colors';
 @import 'abstract/positions';
 
 @import 'components/login';
+@import 'components/UserProfileInfo';
+@import 'components/Notifications';
+@import 'components/NotificationsList';
+@import 'components/Notification';
 @import 'components/buttons';
 @import 'components/links';
 

@@ -25,6 +25,8 @@ gem 'her'
 
 gem 'oauth2'
 
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Use Redis adapter to run Action Cable in production
