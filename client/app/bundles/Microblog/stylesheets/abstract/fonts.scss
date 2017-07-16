@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+h1,
+h2,
+h3,
+h4,
+p,
+th,
+span,
+label {
+  color: $dark-grey;
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+  @include font-size($font-big);
+}
+
+span {
+  &.error {
+    color: $red;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}

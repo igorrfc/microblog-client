@@ -32,6 +32,11 @@ class AuthenticateUser
   end
 
   def create_user
-    User.create(params)
+    User.create(
+      name: params[:name],
+      email: params[:email],
+      nickname: params[:nickname],
+      password: params[:password]
+    )
   end
 end
