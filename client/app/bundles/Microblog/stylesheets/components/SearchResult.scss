@@ -1,0 +1,21 @@
+.search-result {
+  .picture {
+    position: relative;
+    top: 10px;
+  }
+
+  .details {
+    margin-left: -18%;
+  }
+
+  .btn {
+    background-color: $pastel-green;
+    padding: 4px 9px;
+    position: relative;
+    top: 4px;
+  }
+
+  .glyphicon-plus {
+    color: $light-grey;
+  }
+}
