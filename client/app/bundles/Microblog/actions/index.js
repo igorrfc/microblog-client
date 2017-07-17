@@ -9,6 +9,7 @@ import {
   SET_SEARCHED_USERS_LIST,
   FINISHES_USER_SEARCHING,
   START_USER_SEARCHING,
+  FOLLOW_USER,
 } from '../constants';
 
 export const startAuthentication = () => ({ type: START_AUTHENTICATION });
@@ -35,3 +36,5 @@ export const setSearchedUsersList = (users) => ({ type: SET_SEARCHED_USERS_LIST,
 
 export const startUserSearching = () => ({ type: START_USER_SEARCHING });
 export const finishesUserSearching = () => ({ type: FINISHES_USER_SEARCHING });
+
+export const followUser = (user) => ({ type: FOLLOW_USER, user });
