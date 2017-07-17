@@ -12,6 +12,8 @@ import {
   FOLLOW_USER,
   UPDATE_POST_ATTRIBUTE,
   CREATE_POST,
+  VISUALIZE_PROFILE,
+  LEAVE_PROFILE,
 } from '../constants';
 
 export const startAuthentication = () => ({ type: START_AUTHENTICATION });
@@ -48,3 +50,6 @@ export const finishesUserSearching = () => ({ type: FINISHES_USER_SEARCHING });
 export const followUser = (user) => ({ type: FOLLOW_USER, user });
 
 export const createPost = (post) => ({ type: CREATE_POST, post });
+
+export const visualizeProfile = (user) => ({ type: VISUALIZE_PROFILE, user });
+export const leaveProfile = () => ({ type: LEAVE_PROFILE });
