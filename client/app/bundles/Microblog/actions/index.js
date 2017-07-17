@@ -3,6 +3,7 @@ import {
   NEW_USER,
   START_AUTHENTICATION,
   AUTHENTICATION_SUCCEED,
+  AUTHENTICATION_FAILED,
   VISUALIZE_NOTIFICATION,
   REFRESH_USER,
   SET_USERS_LIST,
@@ -18,6 +19,7 @@ import {
 
 export const startAuthentication = () => ({ type: START_AUTHENTICATION });
 export const authenticationSucceed = (user) => ({ type: AUTHENTICATION_SUCCEED, user });
+export const authenticationFailed = (user) => ({ type: AUTHENTICATION_FAILED });
 
 export const updateAttribute = (field, value) => ({
   type: UPDATE_USER_ATTRIBUTE,

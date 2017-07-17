@@ -4,6 +4,10 @@ import axios from 'axios';
 import Notifications from './Notifications';
 
 class UserProfileInfo extends Component {
+  logout() {
+    axios.delete('/logout').then(() => window.location.replace('/'));
+  }
+
   render() {
     const {
       users: { logged },
@@ -65,9 +69,9 @@ class UserProfileInfo extends Component {
                 visualizeNotification={visualizeNotification}
               />
             </div>
-            <div className={`text-center col-md-6 col-xs-6`}>
+            <a onClick={this.logout.bind(this)} className={`text-center col-md-6 col-xs-6`}>
               Logout
-            </div>
+            </a>
           </div>
         </div>
       </div>

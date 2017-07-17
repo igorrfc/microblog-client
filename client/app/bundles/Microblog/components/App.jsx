@@ -72,7 +72,7 @@ export class App extends Component {
 
     if (pathname === '/') { return this.renderLogin(); }
 
-    this.renderSignUp();
+    return this.renderSignUp();
   }
 
   render() {

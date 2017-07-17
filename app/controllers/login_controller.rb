@@ -10,4 +10,10 @@ class LoginController < ApplicationController
       render json: { errors: ['Authentication has failed'] }, status: :bad_request
     end
   end
+
+  def destroy
+    session[:access_token] = nil
+    session[:current_user] = nil
+    head :ok
+  end
 end
