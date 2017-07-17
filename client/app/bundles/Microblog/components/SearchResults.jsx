@@ -3,7 +3,15 @@ import React from 'react';
 import SearchResult from './SearchResult';
 
 const SearchResults = (props) => {
-  const { users: { list, searchedUsersList, searching } } = props;
+  const {
+    followUser,
+    users: {
+      list,
+      searchedUsersList,
+      searching,
+      logged,
+    },
+  } = props;
 
   let listCollection = list;
 
@@ -19,7 +27,16 @@ const SearchResults = (props) => {
 
   return (
     <div className={`search-results`}>
-      { listCollection.map((user, key) => (<SearchResult user={user} key={key} />)) }
+      {
+        listCollection.map((user, key) => (
+          <SearchResult
+            user={user}
+            logged={logged}
+            key={key}
+            followUser={followUser}
+          />
+        ))
+    }
     </div>
   );
 };
