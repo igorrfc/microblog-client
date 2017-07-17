@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import UserAuthentication from './UserAuthentication';
 
-import { handleUserFieldChange } from '../actions/fields';
+import { handleFieldChange } from '../actions/fields';
 
 class SignUp extends Component {
   createAuthentication() {
@@ -45,7 +45,7 @@ class SignUp extends Component {
               type={`text`}
               placeholder={`Name`}
               className={`form-control`}
-              onChange={handleUserFieldChange(updateAttribute)}
+              onChange={handleFieldChange(updateAttribute)}
             />
           </div>
 
@@ -56,7 +56,7 @@ class SignUp extends Component {
               type={`text`}
               placeholder={`Nickname`}
               className={`form-control`}
-              onChange={handleUserFieldChange(updateAttribute)}
+              onChange={handleFieldChange(updateAttribute)}
             />
           </div>
 
@@ -67,7 +67,7 @@ class SignUp extends Component {
               type={`text`}
               placeholder={`Email`}
               className={`form-control`}
-              onChange={handleUserFieldChange(updateAttribute)}
+              onChange={handleFieldChange(updateAttribute)}
             />
           </div>
 
@@ -78,7 +78,7 @@ class SignUp extends Component {
               type={`password`}
               placeholder={`Password`}
               className={`form-control`}
-              onChange={handleUserFieldChange(updateAttribute)}
+              onChange={handleFieldChange(updateAttribute)}
             />
           </div>
 
