@@ -7,11 +7,16 @@ import {
   FINISHES_USER_SEARCHING,
   START_USER_SEARCHING,
   FOLLOW_USER,
+  CREATE_POST,
 } from '../constants';
+
+import { compareByIdDesc } from '../utils';
 
 const insertResourceOnCollection = (collection, resource) => {
   let newCollection = collection.slice();
   newCollection.push(resource);
+  newCollection = newCollection.sort(compareByIdDesc);
+
   return newCollection;
 };
 
@@ -53,6 +58,14 @@ export default function(state = initialState, action) {
         logged: {
           ...state.logged,
           followees: insertResourceOnCollection(state.logged.followees, action.user),
+        },
+      };
+    case CREATE_POST:
+      return {
+        ...state,
+        logged: {
+          ...state.logged,
+          posts: insertResourceOnCollection(state.logged.posts, action.post),
         },
       };
     case FINISHES_USER_SEARCHING:
