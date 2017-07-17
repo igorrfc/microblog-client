@@ -5,6 +5,10 @@ import {
   AUTHENTICATION_SUCCEED,
   VISUALIZE_NOTIFICATION,
   REFRESH_USER,
+  SET_USERS_LIST,
+  SET_SEARCHED_USERS_LIST,
+  FINISHES_USER_SEARCHING,
+  START_USER_SEARCHING,
 } from '../constants';
 
 export const startAuthentication = () => ({ type: START_AUTHENTICATION });
@@ -24,3 +28,10 @@ export const visualizeNotification = (notificationId) => ({
 export const refreshUser = (user) => ({ type: REFRESH_USER, user });
 
 export const userSignUp = () => ({ type: NEW_USER });
+
+export const setUsersList = (users) => ({ type: SET_USERS_LIST, users });
+export const setSearchedUsersList = (users) => ({ type: SET_SEARCHED_USERS_LIST, users });
+
+
+export const startUserSearching = () => ({ type: START_USER_SEARCHING });
+export const finishesUserSearching = () => ({ type: FINISHES_USER_SEARCHING });

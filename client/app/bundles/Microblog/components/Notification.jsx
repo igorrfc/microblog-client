@@ -19,9 +19,10 @@ class Notification extends Component {
   }
 
   render() {
+    const { notification } = this.props;
     return (
       <a className={`notification col-md-12 col-xs-12`} onClick={this.visualizeNotification.bind(this)}>
-        <span className={`font-default bold`}>Foo is following you.</span>
+        <span className={`font-default bold`}>{notification.message}</span>
       </a>
     )
   }

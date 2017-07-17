@@ -2,10 +2,15 @@ import {
   AUTHENTICATION_SUCCEED,
   VISUALIZE_NOTIFICATION,
   REFRESH_USER,
+  SET_USERS_LIST,
+  SET_SEARCHED_USERS_LIST,
+  FINISHES_USER_SEARCHING,
+  START_USER_SEARCHING,
 } from '../constants';
 
 const initialState = {
   list: [],
+  searchedUsersList: [],
 };
 
 export default function(state = initialState, action) {
@@ -19,6 +24,26 @@ export default function(state = initialState, action) {
       return {
         ...state,
         logged: action.user,
+      };
+    case SET_USERS_LIST:
+      return {
+        ...state,
+        list: action.users,
+      };
+    case SET_SEARCHED_USERS_LIST:
+      return {
+        ...state,
+        searchedUsersList: action.users,
+      };
+    case START_USER_SEARCHING:
+      return {
+        ...state,
+        searching: true,
+      };
+    case FINISHES_USER_SEARCHING:
+      return {
+        ...state,
+        searching: false,
       };
     case VISUALIZE_NOTIFICATION:
       return {

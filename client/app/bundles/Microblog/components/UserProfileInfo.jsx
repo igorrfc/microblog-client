@@ -15,10 +15,10 @@ class UserProfileInfo extends Component {
       <div className={`block-component user-profile-info col-md-12 col-xs-12`}>
         <div className={`row`}>
           <div className={`col-md-12 col-xs-12`}>
-            <div className={`col-md-4 col-xs-4`}>
-              <span className="picture glyphicon glyphicon-user"></span>
+            <div className={`text-center col-md-6 col-xs-6`}>
+              <span className={`picture glyphicon glyphicon-user`}></span>
             </div>
-            <div className={`col-md-6 col-xs-6`}>
+            <div className={`details col-md-6 col-xs-6 float-left`}>
               <p className={`bold`}>{logged && logged.name}</p>
               <p className={`font-mid-grey`}>{logged && '@' + logged.nickname}</p>
             </div>
@@ -36,7 +36,7 @@ class UserProfileInfo extends Component {
               </div>
               <div className={`row`}>
                 <div className={`col-md-12 col-xs-12`}>
-                  <p className={`font-mid-grey`}>Following</p>
+                  <p className={`font-mid-grey text-center`}>Following</p>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ class UserProfileInfo extends Component {
               </div>
               <div className={`row`}>
                 <div className={`col-md-12 col-xs-12`}>
-                  <p className={`font-mid-grey`}>Followers</p>
+                  <p className={`font-mid-grey text-center`}>Followers</p>
                 </div>
               </div>
             </div>
