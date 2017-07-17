@@ -10,6 +10,8 @@ import {
   FINISHES_USER_SEARCHING,
   START_USER_SEARCHING,
   FOLLOW_USER,
+  UPDATE_POST_ATTRIBUTE,
+  CREATE_POST,
 } from '../constants';
 
 export const startAuthentication = () => ({ type: START_AUTHENTICATION });
@@ -19,6 +21,12 @@ export const updateAttribute = (field, value) => ({
   type: UPDATE_USER_ATTRIBUTE,
   field,
   value,
+});
+
+export const updatePostAttribute = (field, value) => ({
+  type: UPDATE_POST_ATTRIBUTE,
+  field,
+  value
 });
 
 export const visualizeNotification = (notificationId) => ({
@@ -38,3 +46,5 @@ export const startUserSearching = () => ({ type: START_USER_SEARCHING });
 export const finishesUserSearching = () => ({ type: FINISHES_USER_SEARCHING });
 
 export const followUser = (user) => ({ type: FOLLOW_USER, user });
+
+export const createPost = (post) => ({ type: CREATE_POST, post });
