@@ -40,7 +40,7 @@ class SearchResult extends Component {
   }
 
   render() {
-    const { user } = this.props;
+    const { user, visualizeProfile } = this.props;
 
     return (
       <div className={`search-result`}>
@@ -48,10 +48,10 @@ class SearchResult extends Component {
           <div className={`col-md-4 col-xs-4`}>
             <span className="picture glyphicon glyphicon-user"></span>
           </div>
-          <div className={`details col-md-4 col-xs-4`}>
+          <a className={`details col-md-4 col-xs-4`} onClick={() => visualizeProfile(user)}>
             <span className={`font-default bold`}>{user.name}</span>
             <p className={`font-tiny font-mid-grey`}>@{user.nickname}</p>
-          </div>
+          </a>
           { this.state.followed ? null : this.showFollowButton() }
         </div>
       </div>

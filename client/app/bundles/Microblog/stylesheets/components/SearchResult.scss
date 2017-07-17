@@ -6,6 +6,11 @@
 
   .details {
     margin-left: -18%;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   .btn {
