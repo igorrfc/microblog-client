@@ -41,10 +41,8 @@
     "sass-loader": "^6.0.6",
     "url-loader": "^0.5.9",
     "webpack": "^2.3.3",
-    "webpack-manifest-plugin": "^1.1.0"
-  },
-  "devDependencies": {
-    "css-loader": "^0.28.4",
-    "style-loader": "^0.18.2"
+    "webpack-manifest-plugin": "^1.1.0",
+    "style-loader": "^0.18.2",
+    "css-loader": "^0.28.4"
   }
 }
