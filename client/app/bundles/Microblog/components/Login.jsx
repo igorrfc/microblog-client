@@ -12,6 +12,7 @@ class Login extends Component {
       authentication,
       startAuthentication,
       authenticationSucceed,
+      authenticationFailed,
       railsProps: { authenticity },
     } = this.props;
 
@@ -25,7 +26,7 @@ class Login extends Component {
       user,
     }).then(({ data: response }) => {
       authenticationSucceed(response.data);
-    });
+    }).catch(() => authenticationFailed());
   }
 
   render() {

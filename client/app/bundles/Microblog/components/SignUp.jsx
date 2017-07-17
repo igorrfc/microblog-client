@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import axios from 'axios';
 
 import UserAuthentication from './UserAuthentication';
@@ -12,6 +11,7 @@ class SignUp extends Component {
       authentication,
       startAuthentication,
       authenticationSucceed,
+      authenticationFailed,
       railsProps: { authenticity },
     } = this.props;
 
@@ -25,7 +25,7 @@ class SignUp extends Component {
       user,
     }).then(({ data: response }) => {
       authenticationSucceed(response.data);
-    });
+    }).catch(() => authenticationFailed());
   }
 
   render() {
