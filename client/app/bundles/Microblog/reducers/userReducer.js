@@ -6,7 +6,14 @@ import {
   SET_SEARCHED_USERS_LIST,
   FINISHES_USER_SEARCHING,
   START_USER_SEARCHING,
+  FOLLOW_USER,
 } from '../constants';
+
+const insertResourceOnCollection = (collection, resource) => {
+  let newCollection = collection.slice();
+  newCollection.push(resource);
+  return newCollection;
+};
 
 const initialState = {
   list: [],
@@ -39,6 +46,14 @@ export default function(state = initialState, action) {
       return {
         ...state,
         searching: true,
+      };
+    case FOLLOW_USER:
+      return {
+        ...state,
+        logged: {
+          ...state.logged,
+          followees: insertResourceOnCollection(state.logged.followees, action.user),
+        },
       };
     case FINISHES_USER_SEARCHING:
       return {
