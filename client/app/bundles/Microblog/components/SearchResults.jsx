@@ -5,6 +5,7 @@ import SearchResult from './SearchResult';
 const SearchResults = (props) => {
   const {
     followUser,
+    visualizeProfile,
     users: {
       list,
       searchedUsersList,
@@ -34,6 +35,7 @@ const SearchResults = (props) => {
             logged={logged}
             key={key}
             followUser={followUser}
+            visualizeProfile={visualizeProfile}
           />
         ))
     }

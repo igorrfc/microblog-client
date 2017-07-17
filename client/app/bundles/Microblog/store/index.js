@@ -6,6 +6,7 @@ import authentication from '../reducers/authenticationReducer';
 import users from '../reducers/userReducer';
 import appStatus from '../reducers/appStatusReducer';
 import post from '../reducers/postReducer';
+import activeProfile from '../reducers/activeProfileReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = applyMiddleware(logger);
@@ -16,6 +17,7 @@ const configureStore = (railsProps) => {
     users,
     appStatus,
     post,
+    activeProfile,
     routing: routerReducer,
     railsProps: (state = railsProps, action) => state,
   });

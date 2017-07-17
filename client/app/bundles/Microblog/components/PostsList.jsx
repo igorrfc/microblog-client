@@ -3,10 +3,18 @@ import React from 'react';
 import Post from './Post';
 
 const PostsList = (props) => {
-  console.log(props);
-  const { users: { logged } } = props;
+  const {
+    activeProfile: { user: activeProfileUser },
+    users: { logged: loggedUser }
+  } = props;
 
-  if (!logged) {
+  let userShown = loggedUser;
+
+  if (activeProfileUser) {
+    userShown = activeProfileUser;
+  }
+
+  if (!userShown || !userShown.posts) {
     return (<h3>Write something... ;*</h3>);
   }
 
@@ -15,7 +23,7 @@ const PostsList = (props) => {
       <div className={`row`}>
         <div className={`col-md-12 col-xs-12`}>
           {
-            logged.posts.map((post, key) => (
+            userShown.posts.map((post, key) => (
               <Post post={post} key={key} />
             ))
           }
