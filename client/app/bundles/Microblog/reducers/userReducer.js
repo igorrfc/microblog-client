@@ -35,7 +35,10 @@ export default function(state = initialState, action) {
     case REFRESH_USER:
       return {
         ...state,
-        logged: action.user,
+        logged: {
+          ...action.user,
+          posts: action.user.posts.sort(compareByIdDesc),
+        },
       };
     case SET_USERS_LIST:
       return {
