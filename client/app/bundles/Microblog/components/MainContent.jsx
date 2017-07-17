@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import UserProfileInfo from './UserProfileInfo';
 import SearchUsers from './SearchUsers';
 import PostsHeader from './PostsHeader';
+import PostsList from './PostsList';
 
 class MainContent extends Component {
   render() {
@@ -20,6 +21,9 @@ class MainContent extends Component {
           <div className={`row marg-top-20`}>
             <div className={`col-md-4 col-xs-4`}>
               <SearchUsers { ...this.props } />
+            </div>
+            <div className={`col-md-8 col-xs-8`}>
+              <PostsList { ...this.props } />
             </div>
           </div>
         </div>
