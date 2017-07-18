@@ -1,24 +1,39 @@
-# README
+# Microblog Client
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Microblog Client is an app which gives an interface that consumes for the Microblog API. Feel free to modify it on your way.
 
-Things you may want to cover:
 
-* Ruby version
+### Dependencies
 
-* System dependencies
+* Ruby 2.3.4
+* Rails 5.0.1
+* Node.js
 
-* Configuration
+### Instalation
 
-* Database creation
+```sh
+$ cd microblog_client
+$ bundle install && npm install
+```
 
-* Database initialization
+### Running
 
-* How to run the test suite
+First, create your database.yml from scratch or use our sample:
+```sh
+$ cp config/database.yml.sample config/database.yml
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Before run your app, you must to create and apply the app's migrations:
+```sh
+$ cd microblog_api
+$ bundle install
+```
 
-* Deployment instructions
+To run the server, you'll need to use the gem [foreman](https://github.com/ddollar/foreman). Install it and then you can run the server with the default Procfile.dev configuration:
 
-* ...
+Now, you can start the server:
+```sh
+$ foreman start -f Procfile.dev 
+```
+
+That's it! ;)
