@@ -1,6 +1,19 @@
 import { UPDATE_USER_ATTRIBUTE, NEW_USER } from '../constants';
 
-const initialState = { newUser: false };
+const defaultFieldAttributes = () => ({
+  value: '',
+  errors: [],
+});
+
+const initialState = {
+  newUser: false,
+  user: {
+    name: defaultFieldAttributes(),
+    email: defaultFieldAttributes(),
+    password: defaultFieldAttributes(),
+    nickname: defaultFieldAttributes(),
+  }
+};
 
 export default function(state = initialState, action) {
   switch (action.type) {
