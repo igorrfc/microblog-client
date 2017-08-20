@@ -9,7 +9,11 @@ export default function(state = initialState, action) {
         ...state,
         user: {
           ...state.user,
-          [action.field]: action.value,
+          [action.field]: {
+            ...state[action.field],
+            value: action.attributes.value,
+            errors: action.attributes.errors,
+          },
         }
       };
     case NEW_USER:

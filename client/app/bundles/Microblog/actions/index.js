@@ -21,16 +21,16 @@ export const startAuthentication = () => ({ type: START_AUTHENTICATION });
 export const authenticationSucceed = (user) => ({ type: AUTHENTICATION_SUCCEED, user });
 export const authenticationFailed = (user) => ({ type: AUTHENTICATION_FAILED });
 
-export const updateAttribute = (field, value) => ({
+export const updateAttribute = (field, attributes) => ({
   type: UPDATE_USER_ATTRIBUTE,
   field,
-  value,
+  attributes,
 });
 
-export const updatePostAttribute = (field, value) => ({
+export const updatePostAttribute = (field, attributes) => ({
   type: UPDATE_POST_ATTRIBUTE,
   field,
-  value
+  attributes
 });
 
 export const visualizeNotification = (notificationId) => ({
