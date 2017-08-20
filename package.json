@@ -8,5 +8,10 @@
   ],
   "scripts": {
     "postinstall": "cd client && yarn install"
-  }
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://igorrfc@bitbucket.org/igorrfc/microblog_client.git",
+  "author": "Igor Fernandes <igorrfc10@gmail.com>",
+  "license": "MIT"
 }
