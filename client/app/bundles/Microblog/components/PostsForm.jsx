@@ -2,25 +2,37 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { handleFieldChange } from '../actions/fields';
+import { allFieldsPresent, validatePresence, isFormValid } from '../validations';
+
+import FieldError from './FieldError';
 
 class PostsForm extends Component {
-  createPost() {
-    const {
-      users: { logged },
-      post,
-      createPost,
-    } = this.props;
+  validForm () {
+    const { post: { title, description } } = this.props;
+    const fields = [title, description];
 
-    axios.post('/users/' + logged.id + '/posts', {
-        post: {
-          title: post.title,
-          description: post.description,
-        },
-    }).then(({ data: response }) => createPost(response.data));
+    return allFieldsPresent(fields) && isFormValid(fields);
+  }
+
+  createPost() {
+    if (this.validForm()) {
+      const {
+        users: { logged },
+        post,
+        createPost,
+      } = this.props;
+
+      axios.post('/users/' + logged.id + '/posts', {
+          post: {
+            title: post.title.value,
+            description: post.description.value,
+          },
+      }).then(({ data: response }) => createPost(response.data));  
+    }
   }
 
   render() {
-    const { updatePostAttribute } = this.props;
+    const { updatePostAttribute, post: { title, description } } = this.props;
 
     return (
       <div>
@@ -34,8 +46,11 @@ class PostsForm extends Component {
             type={`text`}
             placeholder={`Title`}
             className={`form-control`}
-            onChange={handleFieldChange(updatePostAttribute)}
+            onChange={handleFieldChange(updatePostAttribute, [validatePresence])}
+            onBlur={handleFieldChange(updatePostAttribute, [validatePresence])}
           />
+
+          <FieldError errors={title.errors} />
         </div>
         <div className={`col-md-8 col-md-offset-2 marg-top-20`}>
           <textarea
@@ -45,14 +60,18 @@ class PostsForm extends Component {
             rows={`3`}
             placeholder={`Tell me more...`}
             className={`form-control`}
-            onChange={handleFieldChange(updatePostAttribute)}
+            onChange={handleFieldChange(updatePostAttribute, [validatePresence])}
+            onBlur={handleFieldChange(updatePostAttribute, [validatePresence])}
           />
+
+          <FieldError errors={description.errors} />
         </div>
         <div className={`col-md-4 col-md-offset-2 marg-top-10`}>
           <input
              className={`btn btn-success col-md-8 col-xs-8`}
              type='submit'
              value='Post'
+             disabled={!this.validForm()}
              onClick={this.createPost.bind(this)}
            />
         </div>
