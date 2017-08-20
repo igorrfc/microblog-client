@@ -5,7 +5,7 @@
   "cacheDirectories": [
     "node_modules",
     "client/node_modules"
-    ],
+  ],
   "scripts": {
     "postinstall": "cd client && yarn install"
   }
