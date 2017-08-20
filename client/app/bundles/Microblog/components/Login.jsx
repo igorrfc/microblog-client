@@ -23,7 +23,10 @@ class Login extends Component {
     axios.post('/login', {
       authenticity_token: authenticity,
       new_user: newUser,
-      user,
+      user: {
+        email: user.email.value,
+        password: user.password.value,
+      },
     }).then(({ data: response }) => {
       authenticationSucceed(response.data);
     }).catch(() => authenticationFailed());
